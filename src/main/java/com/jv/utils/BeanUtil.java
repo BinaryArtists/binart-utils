@@ -33,7 +33,7 @@ public class BeanUtil {
     }
 
     public static <T> List<T> copyList(List <? extends Object> poList , final Class <T>voClass){
-        List<T> voList= new ArrayList<>();
+        List<T> voList= new ArrayList<T>();
 
         T voObj = null;
         for (Object poObj:poList) {

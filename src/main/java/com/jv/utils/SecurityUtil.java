@@ -41,7 +41,7 @@ public class SecurityUtil {
         Date expiresDate = nowTime.getTime();
 
         // header Map
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<String, Object>();
         map.put("alg", "HS256");
         map.put("typ", "JWT");
 
