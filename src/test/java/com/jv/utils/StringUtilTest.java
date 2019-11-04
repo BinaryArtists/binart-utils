@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 
 public class StringUtilTest {
+
     @Test
     public void isEmpty() throws Exception {
         String name = "lisi";
