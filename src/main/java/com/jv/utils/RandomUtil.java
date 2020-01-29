@@ -12,6 +12,10 @@ public class RandomUtil {
     public RandomUtil() {
     }
 
+    /**
+     * 随机生成uuid
+     * @return
+     */
     public static String uuid () {
         return UUID.randomUUID().toString();
     }

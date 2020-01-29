@@ -1,6 +1,11 @@
 package com.jv.utils;
 
 public class FileUtil {
+    /**
+     * 获取文件名的扩展名
+     * @param filename
+     * @return
+     */
     public static String extension(String filename) {
         if ((filename != null) && (filename.length() > 0)) {
             int dot = filename.lastIndexOf('.');
@@ -11,6 +16,11 @@ public class FileUtil {
         return filename;
     }
 
+    /**
+     * 获取文件名裁去扩展名后的名字
+     * @param filename
+     * @return
+     */
     public static String trimExtension (String filename) {
         if ((filename != null) && (filename.length() > 0)) {
             int dot = filename.lastIndexOf('.');

@@ -21,10 +21,14 @@ public class StringUtilTest {
 
     @Test
     public void isNotEmpty() throws Exception {
+        String name = "lisi";
+        boolean flag = StringUtil.isNotEmpty(name);
+        Assert.assertTrue(flag);
     }
 
     @Test
     public void isBlank() throws Exception {
+
     }
 
     @Test
@@ -597,26 +601,33 @@ public class StringUtilTest {
 
     @Test
     public void startsWith() throws Exception {
+        Assert.assertTrue(StringUtil.startsWith("abvfggr", "abvf"));
     }
 
     @Test
     public void startsWithIgnoreCase() throws Exception {
+        Assert.assertTrue(StringUtil.startsWithIgnoreCase("aBvfggr", "abvf"));
     }
 
     @Test
     public void startsWithAny() throws Exception {
+        Assert.assertTrue(StringUtil.startsWithAny("abcvde", "da", "abc", "ee"));
     }
 
     @Test
     public void endsWith() throws Exception {
+        Assert.assertTrue(StringUtil.endsWith("dadwe", "we"));
     }
 
     @Test
     public void endsWithIgnoreCase() throws Exception {
+        Assert.assertTrue(StringUtil.endsWithIgnoreCase("dadWe", "we"));
     }
 
     @Test
     public void normalizeSpace() throws Exception {
+        Assert.assertEquals("rohte t tri a", StringUtil.normalizeSpace(" rohte      t tri"+"\n"+"a"));
+        System.out.println(StringUtil.normalizeSpace("re"+"\n"+" a"));
     }
 
     @Test

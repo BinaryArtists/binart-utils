@@ -81,44 +81,29 @@ public class StringUtil {
      * @return {@code true} if the CharSequence is empty or null
      * @since 3.0 Changed signature from isEmpty(String) to isEmpty(CharSequence)
      */
+    /**
+     * 判断字符序列是空字符或null
+     * @param cs
+     * @return
+     */
     public static boolean isEmpty(CharSequence cs) {
         return cs == null || cs.length() == 0;
     }
 
     /**
-     * <p>Checks if a CharSequence is not empty ("") and not null.</p>
      *
-     * <pre>
-     * StringUtil.isNotEmpty(null)      = false
-     * StringUtil.isNotEmpty("")        = false
-     * StringUtil.isNotEmpty(" ")       = true
-     * StringUtil.isNotEmpty("bob")     = true
-     * StringUtil.isNotEmpty("  bob  ") = true
-     * </pre>
-     *
-     * @param cs  the CharSequence to check, may be null
-     * @return {@code true} if the CharSequence is not empty and not null
-     * @since 3.0 Changed signature from isNotEmpty(String) to isNotEmpty(CharSequence)
+     * 判断字符序列不是空字符或null
+     * @param cs
+     * @return
      */
     public static boolean isNotEmpty(CharSequence cs) {
         return !StringUtil.isEmpty(cs);
     }
 
     /**
-     * <p>Checks if a CharSequence is whitespace, empty ("") or null.</p>
-     *
-     * <pre>
-     * StringUtil.isBlank(null)      = true
-     * StringUtil.isBlank("")        = true
-     * StringUtil.isBlank(" ")       = true
-     * StringUtil.isBlank("bob")     = false
-     * StringUtil.isBlank("  bob  ") = false
-     * </pre>
-     *
-     * @param cs  the CharSequence to check, may be null
-     * @return {@code true} if the CharSequence is null, empty or whitespace
-     * @since 2.0
-     * @since 3.0 Changed signature from isBlank(String) to isBlank(CharSequence)
+     * 判断字符序列是空字符或null或一串空字符
+     * @param cs
+     * @return
      */
     public static boolean isBlank(CharSequence cs) {
         int strLen;
@@ -134,64 +119,24 @@ public class StringUtil {
     }
 
     /**
-     * <p>Checks if a CharSequence is not empty (""), not null and not whitespace only.</p>
-     *
-     * <pre>
-     * StringUtil.isNotBlank(null)      = false
-     * StringUtil.isNotBlank("")        = false
-     * StringUtil.isNotBlank(" ")       = false
-     * StringUtil.isNotBlank("bob")     = true
-     * StringUtil.isNotBlank("  bob  ") = true
-     * </pre>
-     *
-     * @param cs  the CharSequence to check, may be null
-     * @return {@code true} if the CharSequence is
-     *  not empty and not null and not whitespace
-     * @since 2.0
-     * @since 3.0 Changed signature from isNotBlank(String) to isNotBlank(CharSequence)
+     * 判断字符序列不是空字符或null或一串空字符
+     * @param cs
+     * @return
      */
     public static boolean isNotBlank(CharSequence cs) {
         return !StringUtil.isBlank(cs);
     }
 
-    // Trim
-    //-----------------------------------------------------------------------
     /**
-     * <p>Removes control characters (char &lt;= 32) from both
-     * ends of this String, handling {@code null} by returning
-     * {@code null}.</p>
-     *
-     * <p>The String is trimmed using {@link String#trim()}.
-     * Trim removes start and end characters &lt;= 32.
-     * To strip whitespace use {@link #strip(String)}.</p>
-     *
-     * <p>To trim your choice of characters, use the
-     * {@link #strip(String, String)} methods.</p>
-     *
-     * <pre>
-     * StringUtil.trim(null)          = null
-     * StringUtil.trim("")            = ""
-     * StringUtil.trim("     ")       = ""
-     * StringUtil.trim("abc")         = "abc"
-     * StringUtil.trim("    abc    ") = "abc"
-     * </pre>
-     *
-     * @param str  the String to be trimmed, may be null
-     * @return the trimmed string, {@code null} if null String input
+     * 截取字符串除去前后空格字符后的字符串
+     * @param str
+     * @return
      */
     public static String trim(String str) {
         return str == null ? null : str.trim();
     }
 
     /**
-     * <p>Removes control characters (char &lt;= 32) from both
-     * ends of this String returning {@code null} if the String is
-     * empty ("") after the trim or if it is {@code null}.
-     *
-     * <p>The String is trimmed using {@link String#trim()}.
-     * Trim removes start and end characters &lt;= 32.
-     * To strip whitespace use {@link #stripToNull(String)}.</p>
-     *
      * <pre>
      * StringUtil.trimToNull(null)          = null
      * StringUtil.trimToNull("")            = null
@@ -199,11 +144,9 @@ public class StringUtil {
      * StringUtil.trimToNull("abc")         = "abc"
      * StringUtil.trimToNull("    abc    ") = "abc"
      * </pre>
-     *
-     * @param str  the String to be trimmed, may be null
-     * @return the trimmed String,
-     *  {@code null} if only chars &lt;= 32, empty or null String input
-     * @since 2.0
+     *  截取字符串除去前后空格字符后的字符串，若截取后的值为null或空字符统一返回null值
+     * @param str
+     * @return
      */
     public static String trimToNull(String str) {
         String ts = trim(str);
@@ -211,25 +154,15 @@ public class StringUtil {
     }
 
     /**
-     * <p>Removes control characters (char &lt;= 32) from both
-     * ends of this String returning an empty String ("") if the String
-     * is empty ("") after the trim or if it is {@code null}.
-     *
-     * <p>The String is trimmed using {@link String#trim()}.
-     * Trim removes start and end characters &lt;= 32.
-     * To strip whitespace use {@link #stripToEmpty(String)}.</p>
-     *
-     * <pre>
-     * StringUtil.trimToEmpty(null)          = ""
+
+     *  StringUtil.trimToEmpty(null)          = ""
      * StringUtil.trimToEmpty("")            = ""
      * StringUtil.trimToEmpty("     ")       = ""
      * StringUtil.trimToEmpty("abc")         = "abc"
      * StringUtil.trimToEmpty("    abc    ") = "abc"
-     * </pre>
-     *
-     * @param str  the String to be trimmed, may be null
-     * @return the trimmed String, or an empty String if {@code null} input
-     * @since 2.0
+     *  截取字符串除去前后空格字符后的字符串，若截取后的值为null或空字符统一返回"",
+     * @param str
+     * @return
      */
     public static String trimToEmpty(String str) {
         return str == null ? EMPTY : str.trim();
@@ -256,8 +189,8 @@ public class StringUtil {
      * StringUtil.strip(" ab c ") = "ab c"
      * </pre>
      *
-     * @param str  the String to remove whitespace from, may be null
-     * @return the stripped String, {@code null} if null String input
+     * @param str
+     * @return
      */
     public static String strip(String str) {
         return strip(str, null);
@@ -6099,11 +6032,6 @@ public class StringUtil {
     //-----------------------------------------------------------------------
 
     /**
-     * <p>Check if a CharSequence starts with a specified prefix.</p>
-     *
-     * <p>{@code null}s are handled without exception. Two {@code null}
-     * references are considered to be equal. The comparison is case sensitive.</p>
-     *
      * <pre>
      * StringUtil.startsWith(null, null)      = true
      * StringUtil.startsWith(null, "abc")     = false
@@ -6111,55 +6039,31 @@ public class StringUtil {
      * StringUtil.startsWith("abcdef", "abc") = true
      * StringUtil.startsWith("ABCDEF", "abc") = false
      * </pre>
-     *
-     * @see java.lang.String#startsWith(String)
-     * @param str  the CharSequence to check, may be null
-     * @param prefix the prefix to find, may be null
-     * @return {@code true} if the CharSequence starts with the prefix, case sensitive, or
-     *  both {@code null}
-     * @since 2.4
-     * @since 3.0 Changed signature from startsWith(String, String) to startsWith(CharSequence, CharSequence)
+     * 判断字符序列是否以某个字符序列开头的(区分大小写)
+     * @param str
+     * @param prefix
+     * @return
      */
     public static boolean startsWith(CharSequence str, CharSequence prefix) {
         return startsWith(str, prefix, false);
     }
 
     /**
-     * <p>Case insensitive check if a CharSequence starts with a specified prefix.</p>
-     *
-     * <p>{@code null}s are handled without exception. Two {@code null}
-     * references are considered to be equal. The comparison is case insensitive.</p>
-     *
-     * <pre>
-     * StringUtil.startsWithIgnoreCase(null, null)      = true
-     * StringUtil.startsWithIgnoreCase(null, "abc")     = false
-     * StringUtil.startsWithIgnoreCase("abcdef", null)  = false
-     * StringUtil.startsWithIgnoreCase("abcdef", "abc") = true
-     * StringUtil.startsWithIgnoreCase("ABCDEF", "abc") = true
-     * </pre>
-     *
-     * @see java.lang.String#startsWith(String)
-     * @param str  the CharSequence to check, may be null
-     * @param prefix the prefix to find, may be null
-     * @return {@code true} if the CharSequence starts with the prefix, case insensitive, or
-     *  both {@code null}
-     * @since 2.4
-     * @since 3.0 Changed signature from startsWithIgnoreCase(String, String) to startsWithIgnoreCase(CharSequence, CharSequence)
+     * 判断字符序列是否以某个字符序列开头的(忽略大小写)
+     * @param str
+     * @param prefix
+     * @return
      */
     public static boolean startsWithIgnoreCase(CharSequence str, CharSequence prefix) {
         return startsWith(str, prefix, true);
     }
 
     /**
-     * <p>Check if a CharSequence starts with a specified prefix (optionally case insensitive).</p>
-     *
-     * @see java.lang.String#startsWith(String)
-     * @param str  the CharSequence to check, may be null
-     * @param prefix the prefix to find, may be null
-     * @param ignoreCase indicates whether the compare should ignore case
-     *  (case insensitive) or not.
-     * @return {@code true} if the CharSequence starts with the prefix or
-     *  both {@code null}
+     * 判断字符序列是否以某个字符序列开头的(是否忽略大小写)
+     * @param str
+     * @param prefix
+     * @param ignoreCase
+     * @return
      */
     private static boolean startsWith(CharSequence str, CharSequence prefix, boolean ignoreCase) {
         if (str == null || prefix == null) {
@@ -6172,23 +6076,10 @@ public class StringUtil {
     }
 
     /**
-     * <p>Check if a CharSequence starts with any of an array of specified strings.</p>
-     *
-     * <pre>
-     * StringUtil.startsWithAny(null, null)      = false
-     * StringUtil.startsWithAny(null, new String[] {"abc"})  = false
-     * StringUtil.startsWithAny("abcxyz", null)     = false
-     * StringUtil.startsWithAny("abcxyz", new String[] {""}) = false
-     * StringUtil.startsWithAny("abcxyz", new String[] {"abc"}) = true
-     * StringUtil.startsWithAny("abcxyz", new String[] {null, "xyz", "abc"}) = true
-     * </pre>
-     *
-     * @param string  the CharSequence to check, may be null
-     * @param searchStrings the CharSequences to find, may be null or empty
-     * @return {@code true} if the CharSequence starts with any of the the prefixes, case insensitive, or
-     *  both {@code null}
-     * @since 2.5
-     * @since 3.0 Changed signature from startsWithAny(String, String[]) to startsWithAny(CharSequence, CharSequence...)
+     * 检查字符串是否以指定字符串数组中的任何一个开头
+     * @param string
+     * @param searchStrings
+     * @return
      */
     public static boolean startsWithAny(CharSequence string, CharSequence... searchStrings) {
         if (isEmpty(string) || ArrayUtil.isEmpty(searchStrings)) {
@@ -6202,73 +6093,32 @@ public class StringUtil {
         return false;
     }
 
-    // endsWith
-    //-----------------------------------------------------------------------
-
     /**
-     * <p>Check if a CharSequence ends with a specified suffix.</p>
-     *
-     * <p>{@code null}s are handled without exception. Two {@code null}
-     * references are considered to be equal. The comparison is case sensitive.</p>
-     *
-     * <pre>
-     * StringUtil.endsWith(null, null)      = true
-     * StringUtil.endsWith(null, "def")     = false
-     * StringUtil.endsWith("abcdef", null)  = false
-     * StringUtil.endsWith("abcdef", "def") = true
-     * StringUtil.endsWith("ABCDEF", "def") = false
-     * StringUtil.endsWith("ABCDEF", "cde") = false
-     * </pre>
-     *
-     * @see java.lang.String#endsWith(String)
-     * @param str  the CharSequence to check, may be null
-     * @param suffix the suffix to find, may be null
-     * @return {@code true} if the CharSequence ends with the suffix, case sensitive, or
-     *  both {@code null}
-     * @since 2.4
-     * @since 3.0 Changed signature from endsWith(String, String) to endsWith(CharSequence, CharSequence)
+     * 判断字符串是否以某个字符串结尾的(区分大小写)
+     * @param str
+     * @param suffix
+     * @return
      */
     public static boolean endsWith(CharSequence str, CharSequence suffix) {
         return endsWith(str, suffix, false);
     }
 
     /**
-     * <p>Case insensitive check if a CharSequence ends with a specified suffix.</p>
-     *
-     * <p>{@code null}s are handled without exception. Two {@code null}
-     * references are considered to be equal. The comparison is case insensitive.</p>
-     *
-     * <pre>
-     * StringUtil.endsWithIgnoreCase(null, null)      = true
-     * StringUtil.endsWithIgnoreCase(null, "def")     = false
-     * StringUtil.endsWithIgnoreCase("abcdef", null)  = false
-     * StringUtil.endsWithIgnoreCase("abcdef", "def") = true
-     * StringUtil.endsWithIgnoreCase("ABCDEF", "def") = true
-     * StringUtil.endsWithIgnoreCase("ABCDEF", "cde") = false
-     * </pre>
-     *
-     * @see java.lang.String#endsWith(String)
-     * @param str  the CharSequence to check, may be null
-     * @param suffix the suffix to find, may be null
-     * @return {@code true} if the CharSequence ends with the suffix, case insensitive, or
-     *  both {@code null}
-     * @since 2.4
-     * @since 3.0 Changed signature from endsWithIgnoreCase(String, String) to endsWithIgnoreCase(CharSequence, CharSequence)
+     * 判断字符串是否以某个字符串结尾的(忽略大小写)
+     * @param str
+     * @param suffix
+     * @return
      */
     public static boolean endsWithIgnoreCase(CharSequence str, CharSequence suffix) {
         return endsWith(str, suffix, true);
     }
 
     /**
-     * <p>Check if a CharSequence ends with a specified suffix (optionally case insensitive).</p>
-     *
-     * @see java.lang.String#endsWith(String)
-     * @param str  the CharSequence to check, may be null
-     * @param suffix the suffix to find, may be null
-     * @param ignoreCase indicates whether the compare should ignore case
-     *  (case insensitive) or not.
-     * @return {@code true} if the CharSequence starts with the prefix or
-     *  both {@code null}
+     * 判断字符串是否以某个字符串结尾的(是否忽略大小写)
+     * @param str
+     * @param suffix
+     * @param ignoreCase
+     * @return
      */
     private static boolean endsWith(CharSequence str, CharSequence suffix, boolean ignoreCase) {
         if (str == null || suffix == null) {
@@ -6282,45 +6132,10 @@ public class StringUtil {
     }
 
     /**
-     * <p>
-     * Similar to <a
-     * href="http://www.w3.org/TR/xpath/#function-normalize-space">http://www.w3.org/TR/xpath/#function-normalize
-     * -space</a>
-     * </p>
-     * <p>
-     * The function returns the argument string with whitespace normalized by using
-     * <code>{@link #trim(String)}</code> to remove leading and trailing whitespace
-     * and then replacing sequences of whitespace characters by a single space.
-     * </p>
-     * In XML Whitespace characters are the same as those allowed by the <a
-     * href="http://www.w3.org/TR/REC-xml/#NT-S">S</a> production, which is S ::= (#x20 | #x9 | #xD | #xA)+
-     * <p>
-     * Java's regexp pattern \s defines whitespace as [ \t\n\x0B\f\r]
-     * <p>
-     * For reference:
-     * <ul>
-     * <li>\x0B = vertical tab</li>
-     * <li>\f = #xC = form feed</li>
-     * <li>#x20 = space</li>
-     * <li>#x9 = \t</li>
-     * <li>#xA = \n</li>
-     * <li>#xD = \r</li>
-     * </ul>
-     * </p>
-     * <p>
-     * The difference is that Java's whitespace includes vertical tab and form feed, which this functional will also
-     * normalize. Additionally <code>{@link #trim(String)}</code> removes control characters (char &lt;= 32) from both
-     * ends of this String.
-     * </p>
+     * 规范字符串去前后空格和内部多余空白字符
      *
-     * @see Pattern
-     * @see #trim(String)
-     * @see <a
-     *      href="http://www.w3.org/TR/xpath/#function-normalize-space">http://www.w3.org/TR/xpath/#function-normalize-space</a>
-     * @param str the source String to normalize whitespaces from, may be null
-     * @return the modified string with whitespace normalized, {@code null} if null String input
-     *
-     * @since 3.0
+     * @param str
+     * @return
      */
     public static String normalizeSpace(String str) {
         if (str == null) {
@@ -6330,22 +6145,10 @@ public class StringUtil {
     }
 
     /**
-     * <p>Check if a CharSequence ends with any of an array of specified strings.</p>
-     *
-     * <pre>
-     * StringUtil.endsWithAny(null, null)      = false
-     * StringUtil.endsWithAny(null, new String[] {"abc"})  = false
-     * StringUtil.endsWithAny("abcxyz", null)     = false
-     * StringUtil.endsWithAny("abcxyz", new String[] {""}) = true
-     * StringUtil.endsWithAny("abcxyz", new String[] {"xyz"}) = true
-     * StringUtil.endsWithAny("abcxyz", new String[] {null, "xyz", "abc"}) = true
-     * </pre>
-     *
-     * @param string  the CharSequence to check, may be null
-     * @param searchStrings the CharSequences to find, may be null or empty
-     * @return {@code true} if the CharSequence ends with any of the the prefixes, case insensitive, or
-     *  both {@code null}
-     * @since 3.0
+     * 检查字符串是否以指定字符串数组中的任何一个结尾
+     * @param string
+     * @param searchStrings
+     * @return
      */
     public static boolean endsWithAny(CharSequence string, CharSequence... searchStrings) {
         if (isEmpty(string) || ArrayUtil.isEmpty(searchStrings)) {
