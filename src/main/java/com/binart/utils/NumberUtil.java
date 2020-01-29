@@ -1,4 +1,4 @@
-package com.jv.utils;
+package com.binart.utils;
 
 import java.lang.reflect.Array;
 import java.math.BigDecimal;

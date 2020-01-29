@@ -1,4 +1,4 @@
-package com.jv.utils;
+package com.binart.utils;
 
 import lombok.extern.slf4j.Slf4j;
 

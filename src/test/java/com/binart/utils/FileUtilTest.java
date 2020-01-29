@@ -1,9 +1,7 @@
-package com.jv.utils;
+package com.binart.utils;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by Administrator on 2019/11/24.

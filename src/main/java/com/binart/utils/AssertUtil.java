@@ -1,4 +1,4 @@
-package com.jv.utils;
+package com.binart.utils;
 
 public class AssertUtil {
     public static void nonull(Object o) {

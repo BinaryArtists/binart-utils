@@ -1,4 +1,4 @@
-package com.jv.utils;
+package com.binart.utils;
 
 import java.text.DateFormat;
 import java.text.ParseException;

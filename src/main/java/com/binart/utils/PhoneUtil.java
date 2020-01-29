@@ -1,4 +1,4 @@
-package com.jv.utils;
+package com.binart.utils;
 
 import java.util.regex.Pattern;
 

@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>binart</groupId>
-    <artifactId>utils</artifactId>
-    <version>0.1.0</version>
+    <artifactId>binart-utils</artifactId>
+    <version>0.1.5</version>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
