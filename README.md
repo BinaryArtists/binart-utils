@@ -1,3 +1,3 @@
-[![Release](https://jitpack.io/v/User/Repo.svg)](https://jitpack.io/#User/Repo)
+[![Release](https://jitpack.io/v/BinaryArtists/binart-utils.svg)](https://jitpack.io/#BinaryArtists/binart-utils)
 
 # binart-utils
