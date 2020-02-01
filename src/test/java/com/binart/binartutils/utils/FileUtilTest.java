@@ -1,4 +1,4 @@
-package com.binart.binartutils;
+package com.binart.binartutils.utils;
 
 import com.binart.binartutils.utils.FileUtil;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package com.binart.binartutils;
+package com.binart.binartutils.utils;
 
 import com.binart.binartutils.utils.RandomUtil;
 import org.junit.Test;
