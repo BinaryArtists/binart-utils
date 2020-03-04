@@ -1,6 +1,11 @@
 package com.binart.binartutils.utils;
 
+import com.binart.binartutils.pattern.Item;
+import com.binart.binartutils.pattern.Itemable;
+
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EnumUtil {
     /**
@@ -81,39 +86,12 @@ public class EnumUtil {
         return result;
     }
 
-//    public static <E extends EnumItemable<?>> E get(Class<E> enumType, String label) {
-//        for (E e : enumType.getEnumConstants()) {
-//            if (e.getLabel().equals(label)) {
-//                return e;
-//            }
-//        }
-//        return null;
-//    }
-//
-//    public static <E extends EnumItemable<?>> String getValue(Class<E> enumType, String label) {
-//        for (E e : enumType.getEnumConstants()) {
-//            if (e.getLabel().equals(label)) {
-//                return e.getValue().toString();
-//            }
-//        }
-//        return null;
-//    }
-//
-//    public static <E extends EnumItemable<?>> String getLabel(Class<E> enumType, Object value) {
-//        for (E e : enumType.getEnumConstants()) {
-//            if (e.getValue().equals(value)) {
-//                return e.getLabel();
-//            }
-//        }
-//        return null;
-//    }
-//
-//    public static <E extends EnumItemable<?>> List<Item> getSelectItemList(Class<E> enumType) {
-//        List<Item> list = new ArrayList<Item>();
-//        for (E e : enumType.getEnumConstants()) {
-//            list.add(new Item(e.getLabel(), e.getValue()));
-//        }
-//        return list;
-//    }
+    public static <T extends Itemable> List<Item> asItems(Class<T> enumType) {
+        List<Item> list = new ArrayList();
+        for (T e : enumType.getEnumConstants()) {
+            list.add(new Item(e.getCode(), e.getMsg()));
+        }
+        return list;
+    }
 
 }
